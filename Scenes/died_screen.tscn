@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4pryiyplklir"]
+
+[ext_resource type="Script" path="res://Scripts/died_screen.gd" id="1_v7n3m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7n3m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.288
+anchor_right = 0.5
+anchor_bottom = 0.288
+offset_left = -118.0
+offset_top = -34.624
+offset_right = 118.0
+offset_bottom = 34.376
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -166.0
+offset_right = 111.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+alignment = 1
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

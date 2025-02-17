@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt2ldxoarslkt"]
+
+[ext_resource type="Script" path="res://Scripts/bricks.gd" id="1_2tv77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmpk0"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccgab"]
+size = Vector2(34, 22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ri8h8"]
+
+[node name="bricks" type="StaticBody2D"]
+script = ExtResource("1_2tv77")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rmpk0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ccgab")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(32, 20)
+mesh = SubResource("BoxMesh_ri8h8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
